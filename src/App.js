@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import Title from "./componentes/title";
+import Counter from "./componentes/Counter";
+
+import useCountdown from "./hooks/useCountdow";
+
 import './App.css';
 
 function App() {
+  const [day, hour, minute, second] = useCountdown("nov 25, 2023 12:00:00")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" id="coutdown">
+      <div className='container'>
+        <Title title="Contagem Regressiva"/>
+        <div className='countdown-container'>
+          <Counter title= "Dias" number={day} />
+          <Counter title= "Horas" number={hour} />
+          <Counter title= "Minutos" number={minute} />
+          <Counter title= "Segundos" number={second} />
+        </div>
+      </div>
     </div>
   );
 }
